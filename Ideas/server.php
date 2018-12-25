@@ -51,8 +51,8 @@ if (isset($_POST['submit']))
 		{
 
 		     echo "<div class='alert alert-success'><strong>Success!</strong> successfully Submitted..!.</div>";
-             echo "<h3>Details:</h3>";
-             $table="<table>
+                    echo "<h3>Details:</h3>";
+                    $table="<table>
 			  
 			  <tr>
 			    <td>Name</td>
@@ -79,16 +79,17 @@ if (isset($_POST['submit']))
 			    <td>: <strong>".$year."</strong></td>
 			  </tr>
 			</table>";
-             echo $table;
-
-          echo "<br><strong>Description:</strong><br><p>".$description."</p>";
-			 $table=$table."<br><strong>Description:</strong><br><p>".$description."</p>";
-		}
+                    echo $table;
+		    echo "<br><strong>Description:</strong><br><p>".$description."</p>";
+		    $table=$table."<br><strong>Description:</strong><br><p>".$description."</p>";
+		    sendmail($name,$email,$table); // used to send mail
+	          }
 		 else
-		 	echo "<div class='alert alert-danger'>
-   <strong>Sorry !</strong> Problem encountered..!.
-  </div>";
-		sendmail($name,$email,$table);
+		 {
+			 echo "<div class='alert alert-danger'>
+                        <strong>Sorry !</strong> Problem encountered..!.
+                         </div>";
+		 }
 		//header('location:index.php');
 		
 	}
